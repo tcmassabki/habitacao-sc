@@ -12,7 +12,7 @@ nucleo_metropolitano = ['Florianópolis ',
                         'São Pedro de Alcântara '
                         ]
 
-area_expansao =        ['Alfredo Wagner ',
+area_expansao        = ['Alfredo Wagner ',
                         'Angelina ',
                         'Anitápolis ',
                         'Canelinha ',
@@ -39,3 +39,14 @@ obras_rmf            = obras_santa_catarina[obras_santa_catarina['txt_municipio'
 qtd_obras_br  = len(obras_brasil)
 qtd_obras_sc  = len(obras_santa_catarina)
 qtd_obras_rmf = len(obras_rmf)
+
+# Definição de dicionários com grupos de dataframes, separados por território e coluna de interesse
+dfs         = {'Brasil': obras_brasil, 'Santa Catarina': obras_santa_catarina, 'Região Metropolitana de Florianópolis': obras_rmf}
+programas   = {}
+modalidades = {}
+
+# Filtragem dos dataframes-base para os específicos de cada coluna que será trabalhada
+for nome, df in dfs.items():
+    programas[nome] = df['txt_programa'].value_counts()
+    modalidades[nome] = df['txt_modalidade_programa'].value_counts()
+
