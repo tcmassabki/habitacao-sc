@@ -74,6 +74,8 @@ for nome, df in dfs.items():
     pct_programas[nome].rename_axis(nome, inplace=True)
     pct_modalidades[nome].rename_axis(nome, inplace=True)
 
+pd.to_numeric(modalidades['Região Metropolitana de Florianópolis'], downcast='integer')
+pd.to_numeric(modalidades['Florianópolis'], downcast='integer')
 
 # Concatenação e configuração das colunas para dataframe de programas
 programa_df = pd.concat([programas['Brasil'],
@@ -85,7 +87,6 @@ programa_df = pd.concat([programas['Brasil'],
                          programas['Florianópolis'],
                          pct_programas['Florianópolis']
                          ], axis='columns')
-
 programa_df.columns = ['BR', '% (BR)', 'SC', '% (SC)', 'RMF', '% (RMF)', 'FPolis', '% (Fpolis)']
 
 
@@ -102,3 +103,39 @@ modalidade_df = pd.concat([modalidades['Brasil'],
                          ], axis='columns')
 modalidade_df.columns = ['BR', '% (BR)', 'SC', '% (SC)', 'RMF', '% (RMF)', 'FPolis', '% (Fpolis)']
 
+#TODO Compreender por que não estou conseguindo imprimir os dados de RMF e FPolis como inteiros
+"""
+# Configurando arquivos de saída, um para cada conjunto de dados
+saida_programa   = open('dados_programas.txt', mode='w')
+saida_modalidade = open('dados_modalidades.txt', mode='w')
+
+string_programa   = programa_df.to_string(na_rep='-',
+                                          col_space=9,
+                                          formatters={
+                                            'BR':'{:6d}'.format,
+                                            '% (BR)':'{:.2f}'.format,
+                                            'SC':'{:6d}'.format,
+                                            '% (SC)':'{:.2f}'.format,
+                                            'RMF':'{:6d}'.format,
+                                            '% (RMF)':'{:.2f}'.format,
+                                            'FPolis':'{:6d}'.format,
+                                            '% (Fpolis)':'{:.2f}'.format
+                                          })
+string_modalidade = modalidade_df.to_string(na_rep='-',
+                                            col_space=9,
+                                            formatters={
+                                            'BR':'{:2f}'.format,
+                                            '% (BR)':'{:.2f}'.format,
+                                            'SC':'{:2f}'.format,
+                                            '% (SC)':'{:.2f}'.format,
+                                            'RMF':'{:2f}'.format,
+                                            '% (RMF)':'{:.2f}'.format,
+                                            'FPolis':'{:2f}'.format,
+                                            '% (Fpolis)':'{:.2f}'.format
+                                          })
+saida_programa.write(string_programa)
+saida_modalidade.write(string_modalidade)
+
+saida_programa.close()
+saida_modalidade.close()
+"""
