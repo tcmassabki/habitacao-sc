@@ -34,7 +34,7 @@ obras_brasil = pd.read_csv('_contratacoes_pcmv_pcva.csv', sep='|', encoding='lat
 
 # Recorte para obras contratadas para Santa Catarina e Região Metropolitana de Florianópolis
 obras_santa_catarina = obras_brasil[obras_brasil['txt_uf'] == 'SC']
-obras_rmf            = obras_brasil[obras_brasil['txt_municipio'].isin(regiao_metropolitana_florianopolis)]
+obras_rmf            = obras_santa_catarina[obras_santa_catarina['txt_municipio'].isin(regiao_metropolitana_florianopolis)]
 
 qtd_obras_br  = len(obras_brasil)
 qtd_obras_sc  = len(obras_santa_catarina)
