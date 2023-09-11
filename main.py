@@ -35,7 +35,7 @@ regiao_metropolitana_florianopolis = nucleo_metropolitano + area_expansao
 obras_brasil = pd.read_csv('_contratacoes_pcmv_pcva.csv', sep='|', encoding='latin_1', low_memory=False)
 
 
-# Recorte para obras contratadas para Santa Catarina e Região Metropolitana de Florianópolis
+# Recorte para obras contratadas para Santa Catarina, Região Metropolitana de Florianópolis e município de Florianópolis
 obras_santa_catarina = obras_brasil[obras_brasil['txt_uf'] == 'SC']
 obras_rmf            = obras_santa_catarina[obras_santa_catarina['txt_municipio'].isin(regiao_metropolitana_florianopolis)]
 obras_florianopolis  = obras_rmf[obras_rmf['txt_municipio'] == 'Florianópolis ']
