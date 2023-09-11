@@ -104,7 +104,6 @@ modalidade_df = pd.concat([modalidades['Brasil'],
 modalidade_df.columns = ['BR', '% (BR)', 'SC', '% (SC)', 'RMF', '% (RMF)', 'FPolis', '% (Fpolis)']
 
 #TODO Compreender por que não estou conseguindo imprimir os dados de RMF e FPolis como inteiros
-"""
 # Configurando arquivos de saída, um para cada conjunto de dados
 saida_programa   = open('dados_programas.txt', mode='w')
 saida_modalidade = open('dados_modalidades.txt', mode='w')
@@ -123,19 +122,10 @@ string_programa   = programa_df.to_string(na_rep='-',
                                           })
 string_modalidade = modalidade_df.to_string(na_rep='-',
                                             col_space=9,
-                                            formatters={
-                                            'BR':'{:2f}'.format,
-                                            '% (BR)':'{:.2f}'.format,
-                                            'SC':'{:2f}'.format,
-                                            '% (SC)':'{:.2f}'.format,
-                                            'RMF':'{:2f}'.format,
-                                            '% (RMF)':'{:.2f}'.format,
-                                            'FPolis':'{:2f}'.format,
-                                            '% (Fpolis)':'{:.2f}'.format
-                                          })
+                                            float_format=lambda x: '{:.2f}'.format(x)
+                                          )
 saida_programa.write(string_programa)
 saida_modalidade.write(string_modalidade)
 
 saida_programa.close()
 saida_modalidade.close()
-"""

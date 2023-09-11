@@ -1,0 +1,7 @@
+                                    BR    % (BR)        SC    % (SC)       RMF   % (RMF)    FPolis  % (Fpolis)
+CCFGTS                          261780     93.38     15918     91.87   2007.00     96.54    168.00       98.82
+Rural                             9557      3.41      1217      7.02     58.00      2.79         -           -
+Oferta Pública                    4412      1.57        54      0.31         -         -         -           -
+FAR Empresas                      3710      1.32        96      0.55     10.00      0.48      2.00        1.18
+Entidades                          551      0.20        26      0.15      3.00      0.14         -           -
+FAR Urbanização - Vinculadas       330      0.12        15      0.09      1.00      0.05         -           -
